@@ -1,6 +1,12 @@
+<ul>
+<% if session[:cart] %>
+        <%= session[:cart].each do |product|%>
+            <li><% product %></li>
+        <% end %>
+    <% end %>
+</ul>
 
-
-<% form_tag ({
+<%= form_tag ({
     controller: 'products',
     action: 'add',
     method: 'post'
@@ -8,5 +14,5 @@
     
     <label>Product:</label>
     <%= text_field_tag :product %>
-    <% submit_tag "add to the cart" %>
+    <%= submit_tag "add to cart" %>
 <% end %>
